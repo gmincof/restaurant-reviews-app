@@ -1,0 +1,218 @@
+.restaurant {
+  h1 {
+    color: var(--orange);
+    margin: 20px;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  .cuisine {
+    background-color: #333;
+    color: #fff;
+    font-size: 0.8em;
+    font-weight: 300;
+    letter-spacing: 8px;
+    margin: 0;
+    padding: 5px 20px;
+    text-align: center;
+    text-indent: 8px;
+    text-transform: uppercase;
+  }
+
+  .address {
+    font-size: 1.2em;
+    margin: 20px;
+  }
+
+  .hours {
+    border-collapse: collapse;
+    margin: 20px;
+
+    tr:nth-child(2n) {
+      background: #eee;
+    }
+
+    td {
+      padding: 5px;
+    }
+
+    td:first-child {
+      text-align: right;
+    }
+
+    td:last-child {
+      text-transform: uppercase;
+      width: 100%;
+    }
+  }
+
+  .reviews {
+
+    h2 {
+      color: var(--orange);
+      margin: 20px;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      margin: 20px;
+
+      small { /* Date */
+        margin-left: 6px;
+      }
+
+      div { /* Rating */
+        color: var(--orange);
+        font-size: 1.2em;
+        letter-spacing: 1px;
+        margin: 10px 0;
+      }
+
+      p { /* Comments */
+        word-break: break-word;
+        margin: 10px 0;
+      }
+    }
+  }
+
+  div[data-rating="1"]::before,
+  .rating input[value="1"] + span::before {
+    content: "★";
+  }
+
+  div[data-rating="2"]::before,
+  .rating input[value="2"] + span::before {
+    content: "★★";
+  }
+
+  div[data-rating="3"]::before,
+  .rating input[value="3"] + span::before {
+    content: "★★★";
+  }
+
+  div[data-rating="4"]::before,
+  .rating input[value="4"] + span::before {
+    content: "★★★★";
+  }
+
+  div[data-rating="5"]::before,
+  .rating > div::before,
+  .rating input[value="5"] + span::before {
+    content: "★★★★★";
+  }
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+
+    label {
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    input,
+    textarea {
+      border: 1px solid #ccc;
+      margin-top: 10px;
+      padding: 8px 10px;
+      color: inherit;
+    }
+
+    .name {
+      margin-right: 20px;
+    }
+
+    .rating {
+      display: flex;
+      flex-direction: column;
+
+      > div {
+        align-items: center;
+        display: flex;
+        flex-grow: 1;
+        font-size: 1.5em;
+        letter-spacing: 1px;
+        line-height: 1em;
+        margin-top: 10px;
+        position: relative;
+      }
+
+      > div::before {
+        color: rgba(239, 108, 0, 0.4);
+      }
+
+      > div > div {
+        display: flex;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+      }
+
+      input {
+        cursor: pointer;
+        flex-grow: 1;
+        height: 100%;
+        margin-top: 0;
+        opacity: 0;
+        z-index: 1;
+      }
+
+      span {
+        align-items: center;
+        color: var(--orange);
+        display: flex;
+        height: 100%;
+        position: absolute;
+        visibility: hidden;
+        width: 100%;
+      }
+
+      input:focus + span,
+      input:hover + span,
+      input:checked + span {
+        visibility: visible;
+      }
+    }
+
+    .comments {
+      width: 100%;
+
+      textarea {
+        box-sizing: border-box;
+        max-width: 100%;
+        resize: vertical;
+        width: 100%;
+      }
+    }
+
+    .btn {
+      padding: 10px 14px;
+      cursor: pointer;
+      font-weight: 500;
+      text-indent: 1px;
+    }
+  }
+}
+
+@media screen and (min-width: 700px) {
+
+  .restaurant {
+    img {
+      margin: 0 auto;
+      width: calc(100% - 40px);
+    }
+
+    .cuisine {
+      margin: 0 20px;
+    }
+  }
+}

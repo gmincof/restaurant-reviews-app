@@ -1,0 +1,39 @@
+$menu-icon: 'data:image/svg+xml;utf8,<svg fill="rgb(51, 51, 51)" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>';
+
+.filters {
+  background-color: var(--blue);
+  overflow: auto;
+
+  h2 {
+    color: #fff;
+    margin: 20px;
+  }
+
+  select {
+    appearance: none;
+    background: #fff url($menu-icon) right 20px center no-repeat;
+    border: 0;
+    border-radius: 4px;
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.12),
+      0 1px 2px rgba(0, 0, 0, 0.24);
+    color: inherit;
+    display: block;
+    margin: 20px;
+    padding: 14px calc(20px + 24px + 20px) 14px 20px;
+    width: calc(100% - 40px);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+  .filters {
+
+    select {
+      float: left;
+      margin-right: 0;
+      margin-top: 0;
+      width: calc(50% - 30px);
+    }
+  }
+}

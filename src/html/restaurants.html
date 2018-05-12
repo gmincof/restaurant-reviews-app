@@ -1,0 +1,25 @@
+<section class="restaurants">
+  <h2 class="hidden">Restaurants List</h2>
+
+  <ul>
+    ${restaurants.map(restaurant => `
+      <li data-neighborhood="${restaurant.neighborhood}" data-cuisine="${restaurant.cuisine_type}">
+        <div class="img">
+          <img data-src="${API.restaurantImg(restaurant)}" alt="A representative photography of ${restaurant.name} restaurant">
+        </div>
+        <h2>${restaurant.name}</h2>
+        <p>${restaurant.neighborhood}</p>
+        <p>${restaurant.address}</p>
+        <div class="actions">
+          <a class="btn" href="${API.restaurantHref(restaurant)}" title="${restaurant.name}" aria-label="${restaurant.name}">
+            View Details
+          </a>
+          <div class="favorite">
+            <input type="checkbox" value="${restaurant.id}" ${['true', true].includes(restaurant.is_favorite) ? ' checked' : ''} title="Favorite ${restaurant.name}">
+            <span></span>
+          </div>
+        </div>
+      </li>
+    `).join('')}
+  </ul>
+</section>

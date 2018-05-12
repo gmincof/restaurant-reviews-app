@@ -1,0 +1,68 @@
+<section class="restaurant">
+  <h1>${restaurant.name}</h1>
+  <img src="${API.restaurantImg(restaurant)}" alt="A representative photography of ${restaurant.name} restaurant">
+  <div aria-label="Cuisine type">
+    <p
+      class="cuisine">
+      ${restaurant.cuisine_type}
+    </p>
+  </div>
+  <div aria-label="Address">
+    <p
+      class="address">
+      ${restaurant.address}
+    </p>
+  </div>
+  <table class="hours">
+    <caption class="hidden">Operating Hours</caption>
+    ${operatingDays.map(day => `
+      <tr>
+        <td>${day}</td>
+        <td>${restaurant.operating_hours[day]}</td>
+      </tr>
+    `).join('')}
+  </table>
+  <section class="reviews">
+    <h2>Reviews</h2>
+    <form>
+      <label class="name">
+        <div>Name:</div>
+        <input type="text" name="name" maxlength="25" required>
+      </label>
+      <label class="rating">
+        Rating:
+        <div><div>
+          <input type="radio" name="rating" value="1" aria-label="Rating 1 of 5" required><span></span>
+          <input type="radio" name="rating" value="2" aria-label="Rating 2 of 5"><span></span>
+          <input type="radio" name="rating" value="3" aria-label="Rating 3 of 5"><span></span>
+          <input type="radio" name="rating" value="4" aria-label="Rating 4 of 5"><span></span>
+          <input type="radio" name="rating" value="5" aria-label="Rating 5 of 5"><span></span>
+        </div></div>
+      </label>
+      <label class="comments">
+        <div>Comments:</div>
+        <textarea name="comments" rows="3" required></textarea>
+      </label>
+      <button class="btn" type="submit">Post review</button>
+    </form>
+    <ul>
+      ${reviews.reverse().map(review => `
+        <li>
+          <strong>${text`${review.name}`}</strong>
+          <small>
+            ${review.createdAt ?
+              new Date(review.createdAt).toLocaleDateString('en', {
+                day: 'numeric', month: 'long', year: 'numeric'
+              })
+            : ''}
+          </small>
+          <div
+            data-rating="${review.rating}"
+            aria-label="Rating: ${review.rating}">
+          </div>
+          <p>${text`${review.comments}`}</p>
+        </li>
+      `).join('')}
+    </ul>
+  </section>
+</section>

@@ -1,0 +1,155 @@
+:root {
+  --orange: #ef6c00;
+  --darkOrange: #b53d00;
+  --blue: #3397db;
+  --darkBlue: #205e89;
+}
+
+*:focus {
+  outline-color: var(--orange);
+}
+
+body {
+  background-color: #fdfdfd;
+  color: #333;
+  font: 16px/1.2em "Roboto", sans-serif;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+  line-height: initial;
+}
+
+h1 {
+  font-size: 1.8em;
+}
+
+strong {
+  font-weight: 700;
+}
+
+a {
+  color: var(--orange);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: var(--blue);
+}
+
+button {
+  border: 0;
+}
+
+.btn {
+  background-color: var(--orange);
+  border-bottom: 3px solid var(--darkOrange);
+  border-radius: 4px;
+  color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--blue);
+  border-color: var(--darkBlue);
+  color: #fff;
+}
+
+.btn:active {
+  border: 0;
+  margin-top: 3px;
+}
+
+
+/* a11y - https://webaim.org/techniques/css/invisiblecontent/#absolutepositioning */
+.hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+
+header {
+  position: relative;
+  z-index: 1;
+
+  h1 {
+    font-size: 1em;
+    margin: 0;
+  }
+
+  h1,
+  > a {
+    font-weight: 300;
+  }
+
+  h1 a,
+  > a {
+    background-color: #252831;
+    color: #fff;
+    display: block;
+    letter-spacing: 8px;
+    padding: 35px 10px;
+    text-align: center;
+    text-indent: 8px;
+    text-transform: uppercase;
+  }
+}
+
+
+footer {
+  background-color: #1f1f1f;
+  color: #aaa;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  padding: 25px 20px;
+  text-align: center;
+  text-indent: 1px;
+  text-transform: uppercase;
+
+  a {
+    font-weight: 700;
+  }
+}
+
+
+main {
+  display: grid;
+}
+
+
+aside {
+  grid-row: 1;
+}
+
+
+@media screen and (min-width: 700px) {
+
+  main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  aside {
+    grid-column: 2;
+    grid-row: 1 / 3;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+  main {
+    max-width: 1440px;
+    margin: 0 auto;
+    grid-template-columns: 800px;
+  }
+}

@@ -1,0 +1,19 @@
+<section class="filters">
+  <h2>Filter Restaurants</h2>
+
+  <label for="neighborhoods" class="hidden">Filter restaurants by neighborhoods</label>
+  <select id="neighborhoods" name="neighborhood">
+    <option value="">All Neighborhoods</option>
+    ${neighborhoods.map(neighborhood => `
+      <option>${neighborhood}</option>
+    `).join('')}
+  </select>
+
+  <label for="cuisines" class="hidden">Filter restaurants by cuisines</label>
+  <select id="cuisines" name="cuisine">
+    <option value="">All Cuisines</option>
+    ${cuisines.map(cuisine => `
+      <option>${cuisine}</option>
+    `).join('')}
+  </select>
+</section>
